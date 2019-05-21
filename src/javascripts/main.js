@@ -1,4 +1,10 @@
 import 'bootstrap';
 import '../styles/main.scss';
+import print from './components/auth';
 
-console.error('yeet');
+const init = () => {
+  print.printToDom('auth');
+  print.printToDom('birthday');
+};
+
+init();
