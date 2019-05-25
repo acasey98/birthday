@@ -8,7 +8,7 @@ const birthdayPrintToDom = (uid) => {
     domString += `<h3>${birthday.date}</h3>`;
     domString += `<img src=${birthday.imageUrl} alt="birthday location"/>`;
     domString += `<p>${birthday.location} @ ${birthday.time}`;
-    util.printToDom('birthday', domString);
+    util.printToDom('event', domString);
   }).catch(err => console.error('couldnt get birthday', err));
 };
 
