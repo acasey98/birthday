@@ -13,9 +13,13 @@ const createNewFriend = (e) => {
     uid: firebase.auth().currentUser.uid,
   };
   friendsData.addNewFriend(newFriend)
-    .then(resp => console.error('new friend response', resp))
+    .then(() => {
+      document.getElementById('email').value = '';
+      document.getElementById('name').value = '';
+      document.getElementById('birthday').classList.remove('hide');
+      document.getElementById('new-friend').classList.add('hide');
+    })
     .catch(err => console.error('no new friend', err));
-  console.error(newFriend);
 };
 
 const newFriendButton = () => {
