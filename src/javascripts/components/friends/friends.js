@@ -20,7 +20,6 @@ const createNewFriend = (e) => {
       document.getElementById('new-friend').classList.add('hide');
     })
     .catch(err => console.error('no new friend', err));
-  console.error(newFriend);
 };
 
 const newFriendButton = () => {
