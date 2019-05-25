@@ -11,18 +11,12 @@ const signMeIn = () => {
   firebase.auth().signInWithPopup(provider);
 };
 
-const birthdayPrintToDom = (stuff) => {
-  let domString = '';
-  domString += `<h3>${stuff}</h3>`;
-  util.printToDom(stuff, domString);
-};
-
-const authPrintToDom = (stuff) => {
+const authPrintToDom = () => {
   let domString = '<button id="google-auth" class="btn btn-secondary">';
   domString += `<img src=${googleImg} />`;
   domString += '</button>';
-  util.printToDom(stuff, domString);
+  util.printToDom('auth', domString);
   document.getElementById('google-auth').addEventListener('click', signMeIn);
 };
 
-export default { authPrintToDom, birthdayPrintToDom };
+export default { authPrintToDom };
