@@ -50,7 +50,17 @@ const radioButtonEvent = (e) => {
     friendId: e.target.id.split('_')[1],
     statusId: e.target.value,
   };
-  console.error('rsvp', rsvp);
+  if (rsvpId) {
+    // update
+    rsvpData.editRsvp(rsvpId, rsvp)
+      .then(() => getFriends(firebase.auth().currentUser.uid)) // eslint-disable-line no-use-before-define
+      .catch(err => console.error('rsvp error at radiobtnevents', err));
+  } else {
+    // add
+    rsvpData.addRsvp(rsvp)
+      .then(() => getFriends(firebase.auth().currentUser.uid)) // eslint-disable-line no-use-before-define
+      .catch(err => console.error('no add', err));
+  }
 };
 
 const addEvents = () => {
