@@ -6,6 +6,8 @@ const firebaseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const addNewFriend = friendObject => axios.post(`${firebaseUrl}/friends.json`, friendObject);
 
+const deleteFriend = friendId => axios.delete(`${firebaseUrl}/friends/${friendId}.json`);
+
 const getFriendsByUid = uid => new Promise((resolve, reject) => {
   axios.get(`${firebaseUrl}/friends.json?orderBy="uid"&equalTo="${uid}"`)
     .then((results) => {
@@ -20,4 +22,4 @@ const getFriendsByUid = uid => new Promise((resolve, reject) => {
     .catch(err => reject(err));
 });
 
-export default { addNewFriend, getFriendsByUid };
+export default { addNewFriend, getFriendsByUid, deleteFriend };
